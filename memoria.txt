@@ -1,0 +1,64 @@
+
+*********************************************
+****** 1. Cálculo de años bisiestos *********
+*********************************************
+
+1. El Software Under Test (SUT)
+2. El parámetro sería el: [int año]
+3. 
+	Año válido(no negativo) - Año no válido(negativo)
+	Divisible entre 4 - No múltiplo 4
+	Divisible entre 100 - No divisible entre 100
+	Divisible entre 400 - No múltiplo 400
+
+4.
+	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
+	- ACoC:
+Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+
+TTTT - 2000
+TTTF - 2200
+TTFT - No existe
+TTFF - 1904
+TFTT - No existe
+TFTF - 700
+TFFT - No existe
+TFFF - 7
+FTTT - -2000
+FTTF - -2200
+FTFT - No existe
+FTFF - -8
+FFTT - No existe
+FFTF - -700
+FFFT - No existe
+FFFF - -7
+
+	- BCC:
+	Cogemos de caso base el happy path de que se cumple que es un año divisible entre cuatro, entre 100 y entre 400 y es un año positivo.
+
+TTTT - 2000
+FTTT - -2000
+TFTT - No existe ---> Probamos mejor con TTFF - 1904
+TTFT - No existe ---> TFTF - 700
+TTTF - 2200
+	
+
+5.
+
+6.
+
+
+
+
+
+
+
+****************************************************
+*** 2. Conversión de números romanos a base diez ***
+****************************************************
+
+
+
+
+
+
