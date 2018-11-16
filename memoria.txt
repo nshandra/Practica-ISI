@@ -62,7 +62,7 @@ TTTF - 2200
 2.
 	Parámetro: [String s]
 3.
-	Carácter válido - Carácter no válido
+	Tres o más repeticiones seguidas - No
 	Contiene I - No contiene I
 	Contiene V - No contiene V
 	Contiene X - No contiene X
