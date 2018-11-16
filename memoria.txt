@@ -57,6 +57,30 @@ TTTF - 2200
 *** 2. Conversión de números romanos a base diez ***
 ****************************************************
 
+1.
+
+2.
+	Parámetro: [String s]
+3.
+	Carácter válido - Carácter no válido
+	Contiene I - No contiene I
+	Contiene V - No contiene V
+	Contiene X - No contiene X
+	Contiene L - No contiene L
+	Contiene C - No contiene C
+	Contiene D - No contiene D
+	Contiene M - No contiene M
+4.
+	
+	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
+	- ACoC:
+Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+
+
+	- BCC:
+	Cogemos de caso base el happy path de que se cumple que es un año divisible entre cuatro, entre 100 y entre 400 y es un año positivo.
+
+
 
 
 
