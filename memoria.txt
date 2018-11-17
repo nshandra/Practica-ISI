@@ -99,4 +99,15 @@ Si el resto es mayor al nº botellas pequeñas return -1.
 	total no negativos.
 	total-(grandes*5) > pequenas
 
-	
+
+*******************************
+*** 4. DescuentoBlackFriday ***
+*******************************
+
+1.
+
+2.
+	Parámetros: [double precioOriginal, date fecha]
+3.
+	C1: Precio valido (no negativo)
+	C2: Fecha = 23 Noviembre
