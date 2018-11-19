@@ -6,10 +6,10 @@
 1. El Software Under Test (SUT)
 2. El parámetro sería el: [int año]
 3. 
-	Año válido(no negativo) - Año no válido(negativo)
-	Divisible entre 4 - No múltiplo 4
-	Divisible entre 100 - No divisible entre 100
-	Divisible entre 400 - No múltiplo 400
+	Año válido(no negativo) | Año no válido(negativo)
+	Divisible entre 4 | No múltiplo 4
+	Divisible entre 100 | No divisible entre 100
+	Divisible entre 400 | No múltiplo 400
 
 4.
 	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
@@ -63,14 +63,14 @@ TTTF - 2200
 	Parámetro: [String s]
 3.
 	Tiene signos validos.
-	Tres o más repeticiones seguidas - No
-	Contiene I - No contiene I
-	Contiene V - No contiene V
-	Contiene X - No contiene X
-	Contiene L - No contiene L
-	Contiene C - No contiene C
-	Contiene D - No contiene D
-	Contiene M - No contiene M
+	Tres o más repeticiones seguidas | No
+	Contiene I | No contiene I
+	Contiene V | No contiene V
+	Contiene X | No contiene X
+	Contiene L | No contiene L
+	Contiene C | No contiene C
+	Contiene D | No contiene D
+	Contiene M | No contiene M
 4.
 	
 	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
@@ -94,10 +94,10 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 2.
 	Parámetros: [int pequenas, int grandes, int total]
 3.
-	nº pequenas no negativos - nº pequenas negativos
-	grandes no negativos - nº grandes no negativos
-	total no negativo - total negativo
-	total-(grandes*5) > pequenas - total-(grandes*5) <= pequenas
+	C1: pequeñas no negativo | pequeñas negativo
+	C2: grandes no negativo | grandes negativo
+	C3: total no negativo | total negativo
+	C4: total-(grandes*5) <= pequenas | total-(grandes*5) > pequenas
 	
 
 
@@ -110,8 +110,8 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 2.
 	Parámetros: [double precioOriginal, date fecha]
 3.
-	C1: Precio valido (no negativo) - precio inválido (negativo)
-	C2: Fecha = 23 Noviembre - distinto de 23 de Noviembre
+	C1: Precio valido (no negativo) | precio inválido (negativo)
+	C2: Fecha = 23 Noviembre | distinto de 23 de Noviembre
 
 
 

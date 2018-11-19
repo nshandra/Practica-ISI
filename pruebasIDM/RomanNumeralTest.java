@@ -8,6 +8,7 @@ import java.util.*;
 public class RomanNumeralTest {
 
 	private String s;
+	private int num;
 
 	@Before      // Set up - Called before every test method.
 	public void setUp()
