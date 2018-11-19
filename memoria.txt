@@ -4,53 +4,51 @@
 *********************************************
 
 1. El Software Under Test (SUT)
-2. El parámetro sería el: [int año]
-3. 
-	Año válido(no negativo) | Año no válido(negativo)
-	Divisible entre 4 | No múltiplo 4
-	Divisible entre 100 | No divisible entre 100
-	Divisible entre 400 | No múltiplo 400
 
-4.
+2. Parámetros:
+	[int año]
+
+3. Caracterización: 
+	C1: Año válido(no negativo) | Año no válido(negativo)
+	C2: Divisible entre 4 | No múltiplo 4
+	C3: Divisible entre 100 | No divisible entre 100
+	C4: Divisible entre 400 | No múltiplo 400
+
+4. Requisitos:
 	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
 	- ACoC:
-Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+		Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
 
-TTTT - 2000
-TTTF - 2200
-TTFT - No existe
-TTFF - 1904
-TFTT - No existe
-TFTF - 700
-TFFT - No existe
-TFFF - 7
-FTTT - -2000
-FTTF - -2200
-FTFT - No existe
-FTFF - -8
-FFTT - No existe
-FFTF - -700
-FFFT - No existe
-FFFF - -7
+		TTTT - 2000
+		TTTF - 2200
+		TTFT - No existe
+		TTFF - 1904
+		TFTT - No existe
+		TFTF - 700
+		TFFT - No existe
+		TFFF - 7
+		FTTT - -2000
+		FTTF - -2200
+		FTFT - No existe
+		FTFF - -8
+		FFTT - No existe
+		FFTF - -700
+		FFFT - No existe
+		FFFF - -7
 
 	- BCC:
-	Cogemos de caso base el happy path de que se cumple que es un año divisible entre cuatro, entre 100 y entre 400 y es un año positivo.
+		Cogemos de caso base el happy path de que se cumple que es un año divisible entre cuatro, entre 100 y entre 400 y es un año positivo.
 
-TTTT - 2000
-FTTT - -2000
-TFTT - No existe ---> Probamos mejor con TTFF - 1904
-TTFT - No existe ---> TFTF - 700
-TTTF - 2200
+		TTTT - 2000
+		FTTT - -2000
+		TFTT - No existe ---> Probamos mejor con TTFF - 1904
+		TTFT - No existe ---> TFTF - 700
+		TTTF - 2200
 	
 
 5.
 
 6.
-
-
-
-
-
 
 
 ****************************************************
@@ -59,9 +57,10 @@ TTTF - 2200
 
 1.
 
-2.
-	Parámetro: [String s]
-3.
+2. Parámetros:
+	[String s]
+
+3. Caracterización:
 	Tiene signos validos.
 	Tres o más repeticiones seguidas | No
 	Contiene I | No contiene I
@@ -71,15 +70,15 @@ TTTF - 2200
 	Contiene C | No contiene C
 	Contiene D | No contiene D
 	Contiene M | No contiene M
-4.
-	
+
+4. Requisitos:
 	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
 	- ACoC:
-Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+		Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
 
 
 	- BCC:
-	Cogemos de caso base el happy path de que se cumple que es un año divisible entre cuatro, entre 100 y entre 400 y es un año positivo.
+		Cogemos de caso base el happy path de que se cumple que es un año divisible entre cuatro, entre 100 y entre 400 y es un año positivo.
 
 
 
@@ -91,14 +90,37 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 
 1.
 
-2.
-	Parámetros: [int pequenas, int grandes, int total]
-3.
-	C1: pequeñas no negativo | pequeñas negativo
-	C2: grandes no negativo | grandes negativo
-	C3: total no negativo | total negativo
-	C4: total-(grandes*5) <= pequenas | total-(grandes*5) > pequenas
-	
+2. Parámetros:
+	[int pequenas, int grandes, int total]
+
+3. Caracterización:
+	C1: pequeñas nulo
+	C2: grandes nulo
+	C3: total nulo
+	C4: pequeñas positivo
+	C5: grandes positivo
+	C6: total positivo
+	C7: total > grandes x 5
+	C8: total = grandes x 5
+	C9: pequeñas > total
+	C10: pequeñas = total
+
+	total-(grandes*5) <= pequenas | total-(grandes*5) > pequenas
+
+
+4. Requisitos:
+	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
+	- ACoC:
+		Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+
+	- BCC:
+		Base: TTTTTTT - Happy path con valores legales y numero de botellas suficiente.
+		Requisitos no posibles:
+			T** T** ** **
+			*T* *T* ** **
+			**T **T ** **
+			*** *** TT **
+			*** *** ** TT
 
 
 *******************************
@@ -107,12 +129,14 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 
 1.
 
-2.
-	Parámetros: [double precioOriginal, date fecha]
-3.
-	C1: Precio valido (no negativo) | precio inválido (negativo)
-	C2: Fecha = 23 Noviembre | distinto de 23 de Noviembre
+2. Parámetros:
+	[double precioOriginal, date fecha]
 
+3. Caracterización:
+	C1: Precio nulo
+	C2: Precio positivo
+	C3: Fecha = 23 Noviembre
 
+4. Requisitos:
 
 
