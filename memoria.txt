@@ -102,11 +102,8 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	C6: total positivo
 	C7: total > grandes x 5
 	C8: total = grandes x 5
-	C9: pequeñas > total
-	C10: pequeñas = total
-
-	total-(grandes*5) <= pequenas | total-(grandes*5) > pequenas
-
+	C11: pequeñas > total
+	C12: pequeñas = total
 
 4. Requisitos:
 	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
@@ -114,13 +111,44 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 		Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
 
 	- BCC:
-		Base: TTTTTTT - Happy path con valores legales y numero de botellas suficiente.
+		Base: Happy path con valores legales y numero de botellas suficiente.
+			FFF TTT TF TF
+
 		Requisitos no posibles:
 			T** T** ** **
 			*T* *T* ** **
 			**T **T ** **
+
 			*** *** TT **
 			*** *** ** TT
+
+			Entrada nula
+			TTT FFF FF FF
+			TFF FTT TF FF
+			FTF TFT FF TF
+			FFT TTF FF TF
+
+			Entrada negativa
+			FFF FTT TF TF
+			FFF TFT TF TF
+			FFF TTF TF TF
+			FFF FFF TF TF
+
+			TFF FTT TF FF
+			TFF FTT FT FF
+
+			FFF TTT TF FF
+			FFF TTT TF FT
+			FFF TTT TF TF
+
+			TFF FTT FT FF
+			FFF TTT FT FT
+			FFF TTT FT TF
+
+			FFF TTT FF FF
+			FFF TTT FF FT
+			FFF TTT FF TF
+
 
 
 *******************************
