@@ -16,10 +16,51 @@ public class RomanNumeral {
 //La cifra I colocada delante de la V o la X, les resta una unidad; la X, precediendo a la L o a la C, les resta diez unidades y la C, delante de la D o la M, les resta cien unidades.
 
 
+	private int valueFromRoman(char c){
+		int val;
+
+		val = 0;
+
+		switch(c){
+		case 'I': val = 1;
+			break;
+		case 'V': val = 5;
+			break;
+		case 'X': val = 10;
+			break;
+		case 'L': val = 50;
+			break;
+		case 'C': val = 100;
+			break;
+		case 'D': val = 500;
+			break;
+		case 'M': val = 1000;
+			break;
+		default: val = 0;
+			break;
+		}
+		return val;
+	}
+
 	public int convierte(String s){
+		char charActual, charAnt;
+		charActual = 'Z';
 		for (int n = 0 ; n<s.length(); n++){
 			char c = s.charAt (n); 
-			System.out.println (c);
+			System.out.println (valueFromRoman(c));
+
+			if(n!=0){
+				charAnt = charActual;
+				charActual = c;
+			}else{
+				charActual = c;
+				charAnt = c;
+			}
+
+			if((int) charActual <= (int) charAnt){
+				System.out.println("Bien");
+			}
+
 		}
 		return 0;
 	}
