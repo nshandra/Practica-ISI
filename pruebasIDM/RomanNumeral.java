@@ -9,7 +9,7 @@ public class RomanNumeral {
 //No se especifica qué ocurre si el número no es romano
 
 
-//Si a la derecha de una cifra romana de escribe otra igual o menor, el valor de ésta se suma a la anterior.
+//Si a la derecha de una cifra romana se escribe otra igual o menor, el valor de ésta se suma a la anterior.
 //Si un símbolo está a la izquierda inmediata de otro de mayor valor, se resta al valor del segundo el valor del primero.
 //Se permiten a lo sumo tres repeticiones consecutivas del mismo símbolos I, X y C.
 //No se permite la repetición de una misma símbolos V, L y D. (Muchos relojes el uso de IIII para el numeral 4, en lugar del correcto IV.)
@@ -45,11 +45,16 @@ public class RomanNumeral {
 	public int convierte(String s){
 		char charActual, charAnt;
 		charActual = 'Z';
-		for (int n = 0 ; n<s.length(); n++){
+		charAnt = 'Z';
+		int total;
+
+		total = 0;
+
+		for (int n = s.length()-1 ; n>=0; n--){
 			char c = s.charAt (n); 
 			System.out.println (valueFromRoman(c));
 
-			if(n!=0){
+			if(n!=s.length()-1){
 				charAnt = charActual;
 				charActual = c;
 			}else{
@@ -57,17 +62,21 @@ public class RomanNumeral {
 				charAnt = c;
 			}
 
-			if((int) charActual <= (int) charAnt){
-				System.out.println("Bien");
+			if((int) valueFromRoman(charActual) >= valueFromRoman(charAnt)){
+				total = total + valueFromRoman(charActual);
+			}else{
+				total = total - valueFromRoman(charActual);
 			}
-
+			System.out.println("La cuenta va en: " + total);
 		}
-		return 0;
+		
+		return total;
 	}
 
 	public static void main(String[] args){
-		String str = "MCDM";
+//		String str = "MCDLXXIIX";
+		String str = "MCDLXIV";
 		RomanNumeral rn = new RomanNumeral();
-		rn.convierte(str);
+		System.out.println("El número es: " + rn.convierte(str));
 	}
 }
