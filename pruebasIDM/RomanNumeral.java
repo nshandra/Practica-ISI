@@ -1,5 +1,3 @@
-package pruebasIDM;
-
 // javac 
 // javac -cp .:../../hamcrest-core-1.3.jar:../../junit-4.12.jar AllTests.java
 // java -cp .:../../hamcrest-core-1.3.jar:../../junit-4.12.jar AllTests
@@ -18,11 +16,11 @@ public class RomanNumeral {
 //La cifra I colocada delante de la V o la X, les resta una unidad; la X, precediendo a la L o a la C, les resta diez unidades y la C, delante de la D o la M, les resta cien unidades.
 
 
-	public static int convierte(String s){
-		for (int n = 0 ; n<s.length(); n++){
-			char c = s.charAt (n); 
-			System.out.println (c);
-		}
+	public int convierte(String s){
+//		for (int n = 0 ; n<s.length(); n++){
+//			char c = s.charAt (n); 
+//			System.out.println (c);
+//		}
 		return 0;
 	}
 }
