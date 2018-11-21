@@ -17,10 +17,16 @@ public class RomanNumeral {
 
 
 	public int convierte(String s){
-//		for (int n = 0 ; n<s.length(); n++){
-//			char c = s.charAt (n); 
-//			System.out.println (c);
-//		}
+		for (int n = 0 ; n<s.length(); n++){
+			char c = s.charAt (n); 
+			System.out.println (c);
+		}
 		return 0;
+	}
+
+	public static void main(String[] args){
+		String str = "MCDM";
+		RomanNumeral rn = new RomanNumeral();
+		rn.convierte(str);
 	}
 }
