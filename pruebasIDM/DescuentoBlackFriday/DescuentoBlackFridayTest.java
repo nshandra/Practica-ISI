@@ -9,6 +9,7 @@ public class DescuentoBlackFridayTest {
 	private double price;
 	private Date date = new Date();
 	private LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+	DescuentoBlackFriday dbf = new DescuentoBlackFriday();
 
 	//Test 1
 	@Test
@@ -19,9 +20,9 @@ public class DescuentoBlackFridayTest {
 		int day   = localDate.getDayOfMonth();
 		double discount = price * (30.0/100.0);
 		if((month == 11) && (day == 23)){
-				assertTrue("Es Black Friday, fallo", discount == DescuentoBlackFriday.PrecioFinal(price));
+				assertTrue("Es Black Friday, fallo", discount == dbf.PrecioFinal(price));
 		}else{
-				assertTrue("No es Black Friday, fallo", price == DescuentoBlackFriday.PrecioFinal(price));
+				assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price));
 		}
 
 	}
@@ -30,7 +31,7 @@ public class DescuentoBlackFridayTest {
 	@Test (expected = IllegalArgumentException.class)
 	public void testNonPositivePrice(){
 		price = -59.99;
-		DescuentoBlackFriday.PrecioFinal(price);
+		dbf.PrecioFinal(price);
 
 	}
 }

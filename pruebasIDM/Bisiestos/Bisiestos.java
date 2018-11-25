@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Bisiestos {
-	public static boolean esBisiesto(int año) {
+	public boolean esBisiesto(int año) {
 		if(año < 0) throw new NullPointerException();
 
 		boolean condicion_1 = ((año % 4) == 0);

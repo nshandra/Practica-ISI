@@ -11,12 +11,13 @@ public class BisiestosTest {
 	--> 5) No negativo divisible entre 4 y 100 pero no entre 400
 	*/
 	private int year;
+	Bisiestos bis = new Bisiestos();
 
 	//Test 1
 	@Test
 	public void testHappyPath(){
 		year = 2000;
-		assertTrue("Es bisiesto, fallo", true == Bisiestos.esBisiesto(year));
+		assertTrue("Es bisiesto, fallo", true == bis.esBisiesto(year));
 		System.out.println(year + " es bisiesto");
 	}
 
@@ -24,14 +25,14 @@ public class BisiestosTest {
 	@Test (expected = NullPointerException.class)
 	public void testNegativeYear() {
 		year = -2000;
-		Bisiestos.esBisiesto(year);
+		bis.esBisiesto(year);
 	}
 
 	//Test 3
 	@Test
 	public void testDivisibleBy4(){
 		year = 1904;
-		assertTrue("Es bisiesto, fallo", true == Bisiestos.esBisiesto(year));
+		assertTrue("Es bisiesto, fallo", true == bis.esBisiesto(year));
 		System.out.println(year + " es bisiesto");
 	}
 
@@ -39,7 +40,7 @@ public class BisiestosTest {
 	@Test
 	public void testDivisibleBy100(){
 		year = 700;
-		assertTrue("No bisiesto, fallo", false == Bisiestos.esBisiesto(year));
+		assertTrue("No bisiesto, fallo", false == bis.esBisiesto(year));
 		System.out.println(year + " no es bisiesto");
 	}
 
@@ -47,7 +48,7 @@ public class BisiestosTest {
 	@Test
 	public void testDivisibleBy4And100(){
 		year = 2200;
-		assertTrue("No es bisiesto, fallo", false == Bisiestos.esBisiesto(year));
+		assertTrue("No es bisiesto, fallo", false == bis.esBisiesto(year));
 		System.out.println(year + " no es bisiesto");
 	}
 }

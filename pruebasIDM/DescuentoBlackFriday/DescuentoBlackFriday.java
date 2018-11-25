@@ -5,7 +5,7 @@ import java.time.ZoneId;
 
 public class DescuentoBlackFriday {
 
-	public static double PrecioFinal(double precioOriginal) {
+	public double PrecioFinal(double precioOriginal) {
 		if(precioOriginal <= 0.00) throw new IllegalArgumentException();
 
 		Date date = new Date();
