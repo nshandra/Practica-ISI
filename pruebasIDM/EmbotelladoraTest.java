@@ -5,6 +5,7 @@ import java.util.*;
 public class EmbotelladoraTest {
 
 	int pequenas, grandes, total, expected;
+	Embotelladora emb = new Embotelladora(); 
 
 	@Test
 	public void testAllZero() {
@@ -13,7 +14,7 @@ public class EmbotelladoraTest {
 		total = 0;
 		expected = 0;
 		assertTrue ("Test All Zero", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -23,7 +24,7 @@ public class EmbotelladoraTest {
 		total = 1;
 		expected = 1;
 		assertTrue ("Test Grandes Zero", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -33,7 +34,7 @@ public class EmbotelladoraTest {
 		total = 1;
 		expected = 0;
 		assertTrue ("Test Pequenas Zero", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -43,7 +44,7 @@ public class EmbotelladoraTest {
 		total = 0;
 		expected = 0;
 		assertTrue ("Test Total Zero", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -53,7 +54,7 @@ public class EmbotelladoraTest {
 		total = 1;
 		expected = 0;
 		assertTrue ("Test All Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -63,7 +64,7 @@ public class EmbotelladoraTest {
 		total = 1;
 		expected = 0;
 		assertTrue ("Test Grandes Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -73,7 +74,7 @@ public class EmbotelladoraTest {
 		total = 1;
 		expected = 1;
 		assertTrue ("Test Pequenas Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 	@Test
@@ -83,7 +84,7 @@ public class EmbotelladoraTest {
 		total = 1;
 		expected = 0;
 		assertTrue ("Test Total Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 //	C7: total > grandes x 5
@@ -94,7 +95,7 @@ public class EmbotelladoraTest {
 		total = 6;
 		expected = -1;
 		assertTrue ("Test Total Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 //	C8: total = grandes x 5
@@ -105,7 +106,7 @@ public class EmbotelladoraTest {
 		total = 5;
 		expected = 0;
 		assertTrue ("Test Total Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 //	C9: pequeñas > total
@@ -116,7 +117,7 @@ public class EmbotelladoraTest {
 		total = 5;
 		expected = 5;
 		assertTrue ("Test Total Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 //	C10: pequeñas = total
@@ -127,7 +128,7 @@ public class EmbotelladoraTest {
 		total = 5;
 		expected = 5;
 		assertTrue ("Test Total Positive", 
-					expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 	
 }

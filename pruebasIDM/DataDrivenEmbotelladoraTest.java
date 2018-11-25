@@ -9,6 +9,7 @@ import java.util.*;
 public class DataDrivenEmbotelladoraTest {
 
 	int pequenas, grandes, total, expected;
+	Embotelladora emb = new Embotelladora(); 
 	
 	public DataDrivenEmbotelladoraTest (int pequenas, int grandes, int total, int expected) {
 		this.pequenas = pequenas;
@@ -35,6 +36,6 @@ public class DataDrivenEmbotelladoraTest {
 
 	@Test
 	public void testCalculaBotellasPequenas() {
-		assertTrue ("Addition Test", expected == Embotelladora.calculaBotellasPequenas(pequenas, grandes, total));
+		assertTrue ("Addition Test", expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
 }
