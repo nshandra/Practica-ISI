@@ -22,7 +22,7 @@ public class AllTestsEmb {
 
     // The suite() method helps when using JUnit 3 Test Runners or Ant.
     public static junit.framework.Test suite() {
-       return new JUnit4TestAdapter (AllTestsEmb.class);
+       return new JUnit4TestAdapter (AllTests.class);
     }
 }
 
