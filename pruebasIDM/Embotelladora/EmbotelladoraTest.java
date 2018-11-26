@@ -79,8 +79,8 @@ public class EmbotelladoraTest {
 	
 	@Test
 	public void testTotalPositive() {
-		pequenas = 1;
-		grandes = 1;
+		pequenas = 0;
+		grandes = 0;
 		total = 1;
 		expected = 0;
 		assertTrue ("Test Total Positive", 
@@ -111,7 +111,7 @@ public class EmbotelladoraTest {
 	
 //	C9: pequeñas > total
 	@Test
-	public void testPequenasGreaterGrandes() {
+	public void testPequenasGreaterTotal() {
 		pequenas = 6;
 		grandes = 0;
 		total = 5;
@@ -122,7 +122,7 @@ public class EmbotelladoraTest {
 	
 //	C10: pequeñas = total
 	@Test
-	public void testPequenasEqualsGrandes() {
+	public void testPequenasEqualsTotal() {
 		pequenas = 5;
 		grandes = 0;
 		total = 5;

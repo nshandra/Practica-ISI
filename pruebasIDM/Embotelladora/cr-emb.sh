@@ -8,7 +8,7 @@ case $# in
 		;;
 	1 ) echo '1'
 		javac -cp .:./../hamcrest-core-1.3.jar:./../junit-4.12.jar DataDrivenEmbotelladoraTest.java
-		javac -cp .:./../hamcrest-core-1.3.jar:./../junit-4.12.jar AllTestsDDjava
+		javac -cp .:./../hamcrest-core-1.3.jar:./../junit-4.12.jar AllTestsDD.java
 		java -cp .:./../hamcrest-core-1.3.jar:./../junit-4.12.jar AllTestsDD
 		;;
 	* ) echo '*'

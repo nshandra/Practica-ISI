@@ -13,7 +13,7 @@ import junit.framework.JUnit4TestAdapter;
 @RunWith (Suite.class)
 @Suite.SuiteClasses ({ DataDrivenEmbotelladoraTest.class })  // Add test classes here.
 
-public class AllTestsDDEmb {
+public class AllTestsDD {
     // Execution begins in main(). This test class executes a
     // test runner that tells the tester if any fail.
     public static void main (String[] args) {
@@ -22,7 +22,7 @@ public class AllTestsDDEmb {
 
     // The suite() method helps when using JUnit 3 Test Runners or Ant.
     public static junit.framework.Test suite() {
-       return new JUnit4TestAdapter (AllTestsDDEmb.class);
+       return new JUnit4TestAdapter (AllTestsDD.class);
     }
 }
 
