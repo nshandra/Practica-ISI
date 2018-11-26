@@ -22,7 +22,7 @@ public class BisiestosTest {
 	}
 
 	//Test 2
-	@Test (expected = NullPointerException.class)
+	@Test (expected = IllegalArgumentException.class)
 	public void testNegativeYear() {
 		year = -2000;
 		bis.esBisiesto(year);

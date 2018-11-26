@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Bisiestos {
 	public boolean esBisiesto(int año) {
-		if(año < 0) throw new NullPointerException();
+		if(año < 0) throw new IllegalArgumentException();
 
 		boolean condicion_1 = ((año % 4) == 0);
 		boolean condicion_2 = ((año % 100) != 0);
