@@ -105,6 +105,9 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	C11: pequeñas > total
 	C12: pequeñas = total
 
+	Dividimos en nulo (0) y positivos porque nulo es caso frontera.
+
+
 4. Requisitos:
 	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
 	- ACoC:
