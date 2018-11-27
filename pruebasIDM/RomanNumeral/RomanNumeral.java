@@ -75,13 +75,20 @@ public class RomanNumeral {
 			}
 
 			if(rep > 3){
-				System.out.println("El número introducido no es válido");
+				System.out.println("El número introducido no es válido: Demasiadas repeticiones de una letra");
 				return -1; //System.exit(1);
 			}else if(rep > 1 && (charActual == 'V' || charActual == 'L' || charActual == 'D')){
-				System.out.println("El número introducido no es válido2");
+				System.out.println("El número introducido no es válido: V,L o D repetido");
 				return -1;
 			}
 
+			if( charActual == 'I' && charAnt != 'V' && charAnt != 'X' && charAnt != 'I'){
+				System.out.println("Posición errónea en las letras");
+				return -1;
+			}else if( charActual == 'X' && (charAnt == 'D' || charAnt == 'M' || charAnt == 'X') ){
+				System.out.println("Posición errónea en las letras");
+				return -1;
+			}
 //			System.out.println("La cuenta va en: " + total);
 		}
 		
