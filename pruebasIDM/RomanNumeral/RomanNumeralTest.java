@@ -23,6 +23,27 @@ public class RomanNumeralTest {
 		RomanNumeral num = new RomanNumeral();
 		assertTrue("Too many letters", -1 == num.convierte("MMMM") );
 	}
+
+	@Test
+	public void testInvalidRepeatedLetters(){
+		RomanNumeral num = new RomanNumeral();
+		assertTrue("Invalid repeated letters", -1 == num.convierte("XVVI"));
+	}
+
+	@Test
+	public void testHappyPath(){
+		RomanNumeral num = new RomanNumeral();
+		assertTrue("Happy path", 1467 == num.convierte("MCDLXVII"));
+	}
+
+
+	@Test 
+	public void testBadOrder(){
+		RomanNumeral num = new RomanNumeral();
+		assertTrue("Bad Order", -1 == num.convierte("LIXL"));
+	}
+
+
 }
 
 
