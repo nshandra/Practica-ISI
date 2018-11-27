@@ -48,6 +48,8 @@ public class RomanNumeral {
 		charActual = 'Z';
 		charAnt = 'Z';
 
+		s = s.toUpperCase();
+
 		total = 0;
 		rep = 1;
 		for (int n = s.length()-1 ; n>=0; n--){
@@ -85,7 +87,7 @@ public class RomanNumeral {
 			if( charActual == 'I' && charAnt != 'V' && charAnt != 'X' && charAnt != 'I'){
 				System.out.println("Posición errónea en las letras");
 				return -1;
-			}else if( charActual == 'X' && (charAnt == 'D' || charAnt == 'M' || charAnt == 'X') ){
+			}else if( charActual == 'X' && (charAnt == 'D' || charAnt == 'M') ){
 				System.out.println("Posición errónea en las letras");
 				return -1;
 			}
