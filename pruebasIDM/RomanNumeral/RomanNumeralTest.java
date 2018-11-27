@@ -18,10 +18,10 @@ public class RomanNumeralTest {
 		;
 	}
 
-	@Test (expected = NullPointerException.class)
-	public void testNegativeYear() {
+	@Test //(expected = NullPointerException.class)
+	public void testTooManyLetters() {
 		RomanNumeral num = new RomanNumeral();
-		int prueba = num.convierte("MCDL");
+		assertTrue("Too many letters", -1 == num.convierte("MMMM") );
 	}
 }
 

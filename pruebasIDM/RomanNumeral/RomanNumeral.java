@@ -1,7 +1,7 @@
 // javac 
 // javac -cp .:../../hamcrest-core-1.3.jar:../../junit-4.12.jar AllTests.java
 // java -cp .:../../hamcrest-core-1.3.jar:../../junit-4.12.jar AllTests
-
+import java.util.Scanner;
 
 public class RomanNumeral {
 // Parámetro: s es un número romano.
@@ -44,30 +44,45 @@ public class RomanNumeral {
 
 	public int convierte(String s){
 		char charActual, charAnt;
+		int total, rep;
 		charActual = 'Z';
 		charAnt = 'Z';
-		int total;
 
 		total = 0;
-
+		rep = 1;
 		for (int n = s.length()-1 ; n>=0; n--){
 			char c = s.charAt (n); 
-			System.out.println (valueFromRoman(c));
-
+//			System.out.println (valueFromRoman(c));
 			if(n!=s.length()-1){
 				charAnt = charActual;
 				charActual = c;
 			}else{
 				charActual = c;
 				charAnt = c;
+				rep = 0;
 			}
 
-			if((int) valueFromRoman(charActual) >= valueFromRoman(charAnt)){
+			if(valueFromRoman(charActual) >= valueFromRoman(charAnt)){
 				total = total + valueFromRoman(charActual);
 			}else{
 				total = total - valueFromRoman(charActual);
 			}
-			System.out.println("La cuenta va en: " + total);
+
+			if(valueFromRoman(charActual) == valueFromRoman(charAnt)){
+				rep = rep + 1;
+			}else{
+				rep = 1;
+			}
+
+			if(rep > 3){
+				System.out.println("El número introducido no es válido");
+				return -1; //System.exit(1);
+			}else if(rep > 1 && (charActual == 'V' || charActual == 'L' || charActual == 'D')){
+				System.out.println("El número introducido no es válido2");
+				return -1;
+			}
+
+//			System.out.println("La cuenta va en: " + total);
 		}
 		
 		return total;
@@ -75,8 +90,11 @@ public class RomanNumeral {
 
 	public static void main(String[] args){
 //		String str = "MCDLXXIIX";
-		String str = "MCDLXIV";
+//		String str = "MCDLXIVV"; //1464
+		System.out.print("Enter a RomanNumber: ");
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
 		RomanNumeral rn = new RomanNumeral();
-		System.out.println("El número es: " + rn.convierte(str));
+		System.out.println("El número es: " + rn.convierte(input));
 	}
 }
