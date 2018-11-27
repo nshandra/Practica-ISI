@@ -36,11 +36,16 @@ public class RomanNumeralTest {
 		assertTrue("Happy path", 1467 == num.convierte("MCDLXVII"));
 	}
 
-
-	@Test 
+	@Test
 	public void testBadOrder(){
 		RomanNumeral num = new RomanNumeral();
-		assertTrue("Bad Order", -1 == num.convierte("LIXL"));
+		assertTrue("Bad order", -1 == num.convierte("MMIM"));
+	}
+
+	@Test 
+	public void testWrongRepetition(){
+		RomanNumeral num = new RomanNumeral();
+		assertTrue("Wrong repetition", -1 == num.convierte("LIXL"));
 	}
 
 
