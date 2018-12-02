@@ -12,6 +12,7 @@ public class DescuentoBlackFridayTest {
 	DescuentoBlackFriday dbf = new DescuentoBlackFriday();
 
 	//Test 1
+	//Debido a como implemente este test, recorre ambos caminos [1,3,5] y [1,3,4]
 	@Test
 	public void testCheckPrice(){
 		price = 30.0;
@@ -28,6 +29,7 @@ public class DescuentoBlackFridayTest {
 	}
 
 	//Test 2
+	//Según el grafo, recorre el camino 1,2
 	@Test (expected = IllegalArgumentException.class)
 	public void testNonPositivePrice(){
 		price = -59.99;

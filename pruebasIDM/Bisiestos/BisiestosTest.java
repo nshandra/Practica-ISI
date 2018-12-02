@@ -14,6 +14,7 @@ public class BisiestosTest {
 	Bisiestos bis = new Bisiestos();
 
 	//Test 1
+	//Según el grafo, recorre el camino [1,3,5]
 	@Test
 	public void testHappyPath(){
 		year = 2000;
@@ -22,6 +23,7 @@ public class BisiestosTest {
 	}
 
 	//Test 2
+	//Según el grafo, recorre el camino [1,2]
 	@Test (expected = IllegalArgumentException.class)
 	public void testNegativeYear() {
 		year = -2000;
@@ -29,6 +31,7 @@ public class BisiestosTest {
 	}
 
 	//Test 3
+        //Según el grafo, recorre el camino [1,3,5]
 	@Test
 	public void testDivisibleBy4(){
 		year = 1904;
@@ -37,6 +40,7 @@ public class BisiestosTest {
 	}
 
 	//Test 4
+	//Según el grafo, recorre el camino [1,3,4]
 	@Test
 	public void testDivisibleBy100(){
 		year = 700;
@@ -45,6 +49,7 @@ public class BisiestosTest {
 	}
 
 	//Test 5
+	//Según el grafo, recorre el camino [1,3,4]
 	@Test
 	public void testDivisibleBy4And100(){
 		year = 2200;
