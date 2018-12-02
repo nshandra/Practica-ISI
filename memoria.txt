@@ -94,7 +94,7 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	[int pequenas, int grandes, int total]
 
 3. Caracterización:
-	C1: pequeñas = 0
+	C1: pequeñas, grandes o total < 0
 	C2: grandes = 0
 	C3: total = 0
 
@@ -102,7 +102,7 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	C5: grandes positivo
 	C6: total positivo
 
-	C7: total > grandes x 5 + pequeñas
+	C7: total < grandes x 5 + pequeñas
 	C8: total = grandes x 5 + pequeñas
 
 	Dividimos en nulo (0) y positivos porque es caso frontera.
@@ -126,18 +126,22 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 			TTT FFF FF
 
 			Total negativo mayor o igual a numeros positivos o nulos.
-			TTF FFF TF
-			FFF TTF TF
+			TTF FFF FF
+			FFF TTF FF
 
 			TTF FFF FT
 			FFF TTF FT
 
+			Pequeñas o grandes negativas, total 0 y total = grandes x 5 + pequeñas.
+			TFT FFF FT
+			FTT FFF FT
+
 		Bases:
-			Happy path: valores positivos y total > grandes x 5 + pequeñas.
+			Happy path: valores positivos y total < grandes x 5 + pequeñas.
 				FFF TTT TF
 
 				Elecciones:	
-				FFF TTT FF
+				FFF TTF TF
 				FFF TFT TF
 				FFF FTT TF
 
@@ -145,35 +149,18 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 				FFF TTT FT
 
 				Elecciones:
-				FFF TTT FF
 				FFF TFT FT
 				FFF FTT FT
 
-			Happy path: valores positivos y total < grandes x 5 + pequeñas.
+			Happy path: valores positivos y total > grandes x 5 + pequeñas.
 				FFF TTT FF
 
 				Elecciones:
-				FFF TTF FF
 				FFF TFT FF
 				FFF FTT FF
 
 			Entrada mas simple: todo ceros.
 				TTT FFF FT
-
-				Elecciones:
-				TFT FFF FT
-				FTT FFF FT
-
-			Entrada negativa
-				FFF FFF FF
-
-				Elecciones:
-				FFF FFF FT
-				FFF FFF TF
-				FFF FTF FF
-				FFF TFF FF
-				FTF FFF FF
-				TFF FFF FF
 
 
 		Casos de test:

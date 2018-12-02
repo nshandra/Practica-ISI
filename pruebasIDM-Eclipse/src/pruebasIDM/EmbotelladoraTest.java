@@ -1,136 +1,61 @@
 package pruebasIDM;
 
 import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 import static org.junit.Assert.*;
 import java.util.*;
 
+@RunWith(Parameterized.class)
 public class EmbotelladoraTest {
 
 	int pequenas, grandes, total, expected;
 	Embotelladora emb = new Embotelladora(); 
+	
+	public EmbotelladoraTest (int pequenas, int grandes, int total, int expected) {
+		this.pequenas = pequenas;
+		this.grandes = grandes;
+		this.total = total;
+		this.expected = expected;
+	}
+
+	@Parameters
+	public static Collection<Object[]> calcValues() {
+		return Arrays.asList (new Object [][] {
+			// Happy path: valores positivos y total < grandes x 5 + pequeñas.
+			// [0] FFF TTT TF
+			{8,6,22,0},
+			// [1] FFF TTF TF
+			{20,2,-16,-1},
+			// [2] FFF TFT TF
+			{2,-8,16,-1},
+			// [3] FFF FTT TF
+			{-18,1,16,-1},
+			// Happy path: valores positivos y total = grandes x 5 + pequeñas.
+			// [4] FFF TTT FT
+			{5,1,10,5},
+			// [5] FFF TFT FT
+			{6,-2,16,-1},
+			// [6] FFF FTT FT
+			{-6,2,16,-1},
+			// Happy path: valores positivos y total > grandes x 5 + pequeñas.
+			// [7] FFF TTT FF
+			{3,1,18,-1},
+			// [8] FFF TFT FF
+			{6,-4,5,-1},
+			// [9] FFF FTT FF
+			{-6,2,16,-1},
+			// Entrada mas simple: todo ceros.
+			// [10] TTT FFF FT
+			{0,0,0,0}
+			}); 
+	}
+	
 
 	@Test
-	public void testAllZero() {
-		pequenas = 0;
-		grandes = 0;
-		total = 0;
-		expected = 0;
-		assertTrue ("Test All Zero", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
+	public void testCalculaBotellasPequenas() {
+		System.out.println(emb.calculaBotellasPequenas(pequenas, grandes, total));
+		assertTrue ("Addition Test", expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
 	}
-	
-	@Test
-	public void testGrandesZero() {
-		pequenas = 1;
-		grandes = 0;
-		total = 1;
-		expected = 1;
-		assertTrue ("Test Grandes Zero", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-	@Test
-	public void testPequenasZero() {
-		pequenas = 0;
-		grandes = 1;
-		total = 1;
-		expected = 0;
-		assertTrue ("Test Pequenas Zero", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-	@Test
-	public void testTotalZero() {
-		pequenas = 1;
-		grandes = 1;
-		total = 0;
-		expected = 0;
-		assertTrue ("Test Total Zero", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-	@Test
-	public void testAllPositive() {
-		pequenas = 1;
-		grandes = 1;
-		total = 1;
-		expected = 0;
-		assertTrue ("Test All Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-	@Test
-	public void testGrandesPositive() {
-		pequenas = 0;
-		grandes = 1;
-		total = 1;
-		expected = 0;
-		assertTrue ("Test Grandes Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-	@Test
-	public void testPequenasPositive() {
-		pequenas = 1;
-		grandes = 0;
-		total = 1;
-		expected = 1;
-		assertTrue ("Test Pequenas Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-	@Test
-	public void testTotalPositive() {
-		pequenas = 0;
-		grandes = 0;
-		total = 1;
-		expected = 0;
-		assertTrue ("Test Total Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-//	C7: total > grandes x 5
-	@Test
-	public void testTotalGreaterGrandes() {
-		pequenas = 0;
-		grandes = 1;
-		total = 6;
-		expected = -1;
-		assertTrue ("Test Total Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-//	C8: total = grandes x 5
-	@Test
-	public void testTotalEqualsGrandes() {
-		pequenas = 0;
-		grandes = 1;
-		total = 5;
-		expected = 0;
-		assertTrue ("Test Total Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-//	C9: pequeñas > total
-	@Test
-	public void testPequenasGreaterTotal() {
-		pequenas = 6;
-		grandes = 0;
-		total = 5;
-		expected = 5;
-		assertTrue ("Test Total Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
-//	C10: pequeñas = total
-	@Test
-	public void testPequenasEqualsTotal() {
-		pequenas = 5;
-		grandes = 0;
-		total = 5;
-		expected = 5;
-		assertTrue ("Test Total Positive", 
-					expected == emb.calculaBotellasPequenas(pequenas, grandes, total));
-	}
-	
 }
