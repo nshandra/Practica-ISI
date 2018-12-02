@@ -94,63 +94,114 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	[int pequenas, int grandes, int total]
 
 3. Caracterización:
-	C1: pequeñas nulo
-	C2: grandes nulo
-	C3: total nulo
+	C1: pequeñas = 0
+	C2: grandes = 0
+	C3: total = 0
+
 	C4: pequeñas positivo
 	C5: grandes positivo
 	C6: total positivo
-	C7: total > grandes x 5
-	C8: total = grandes x 5
-	C11: pequeñas > total
-	C12: pequeñas = total
 
-	Dividimos en nulo (0) y positivos porque nulo es caso frontera.
+	C7: total > grandes x 5 + pequeñas
+	C8: total = grandes x 5 + pequeñas
 
+	Dividimos en nulo (0) y positivos porque es caso frontera.
 
 4. Requisitos:
-	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
-	- ACoC:
-		Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+	Vamos a utilizar el criterio BCC (Base Choice Coverage).
 
 	- BCC:
-		Base: Happy path con valores legales y numero de botellas suficiente.
-			FFF TTT TF TF
-
 		Requisitos no posibles:
-			T** T** ** **
-			*T* *T* ** **
-			**T **T ** **
+			
+			Entrada 0 y positiva a la vez.
+			T** T** **
+			*T* *T* **
+			**T **T **
 
-			*** *** TT **
-			*** *** ** TT
+			Total mayor e igual a la vez.
+			*** *** TT
 
-			Entrada nula
-			TTT FFF FF FF
-			TFF FTT TF FF
-			FTF TFT FF TF
-			FFT TTF FF TF
+			Entrada 0 y total != grandes x 5 + pequeñas.
+			TTT FFF TF
+			TTT FFF FF
+
+			Total negativo mayor o igual a numeros positivos o nulos.
+			TTF FFF TF
+			FFF TTF TF
+
+			TTF FFF FT
+			FFF TTF FT
+
+		Bases:
+			Happy path: valores positivos y total > grandes x 5 + pequeñas.
+				FFF TTT TF
+
+				Elecciones:	
+				FFF TTT FF
+				FFF TFT TF
+				FFF FTT TF
+
+			Happy path: valores positivos y total = grandes x 5 + pequeñas.
+				FFF TTT FT
+
+				Elecciones:
+				FFF TTT FF
+				FFF TFT FT
+				FFF FTT FT
+
+			Happy path: valores positivos y total < grandes x 5 + pequeñas.
+				FFF TTT FF
+
+				Elecciones:
+				FFF TTF FF
+				FFF TFT FF
+				FFF FTT FF
+
+			Entrada mas simple: todo ceros.
+				TTT FFF FT
+
+				Elecciones:
+				TFT FFF FT
+				FTT FFF FT
 
 			Entrada negativa
-			FFF FTT TF TF
-			FFF TFT TF TF
-			FFF TTF TF TF
-			FFF FFF TF TF
+				FFF FFF FF
 
-			TFF FTT TF FF
-			TFF FTT FT FF
+				Elecciones:
+				FFF FFF FT
+				FFF FFF TF
+				FFF FTF FF
+				FFF TFF FF
+				FTF FFF FF
+				TFF FFF FF
 
-			FFF TTT TF FF
-			FFF TTT TF FT
-			FFF TTT TF TF
 
-			TFF FTT FT FF
-			FFF TTT FT FT
-			FFF TTT FT TF
+		Casos de test:
+			FFF TTT TF
+			FFF TTT FF
+			FFF TFT TF
+			FFF FTT TF
 
-			FFF TTT FF FF
-			FFF TTT FF FT
-			FFF TTT FF TF
+			FFF TTT FT
+			FFF TFT FT
+			FFF FTT FT
+
+			FFF TTT FF
+			FFF TTF FF
+			FFF TFT FF
+			FFF FTT FF
+
+			TTT FFF FT
+			TFT FFF FT
+			FTT FFF FT
+
+			FFF FFF FF
+			FFF FFF FT
+			FFF FFF TF
+			FFF FTF FF
+			FFF TFF FF
+			FTF FFF FF
+			TFF FFF FF
 
 
 
