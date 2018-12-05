@@ -6,7 +6,7 @@ public class Embotelladora {
 			return -1;
 		} else {
 			int rest = total - (grandes * 5);
-			if (rest >= 0) {
+			if (rest > 0) {
 				if (pequenas >= rest) {
 					return rest;
 				} else {

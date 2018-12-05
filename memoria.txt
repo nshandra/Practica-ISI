@@ -105,103 +105,102 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	C7: total < grandes x 5 + pequeñas
 	C8: total = grandes x 5 + pequeñas
 
-	Dividimos en nulo (0) y positivos porque es caso frontera.
+	Dividimos en cero y positivos porque es caso frontera.
 
 4. Requisitos:
 	Vamos a utilizar el criterio MBCC (Multiple Base Choice Coverage).
 
-	- BCC:
-		Requisitos no posibles:
-			
-			Entrada 0 y positiva a la vez.
-			T** T** **
-			*T* *T* **
-			**T **T **
+	Requisitos no posibles:
 
-			Total mayor e igual a la vez.
-			*** *** TT
+		O = T OR F
+		
+		Entrada 0 y positiva a la vez.
+		T** T** **
+		*T* *T* **
+		**T **T **
 
-			Entrada 0 y total != grandes x 5 + pequeñas.
-			TTT FFF TF
-			TTT FFF FF
+		Total mayor e igual a la vez.
+		*** *** TT
 
-			Total negativo mayor o igual a numeros positivos y/o nulos.
-			TTF FFF FF
-			TTF FFF FT
+		Entrada 0 y total != grandes x 5 + pequeñas.
+		TTT FFF TF
+		TTT FFF FF
 
-			FFF TTF FF
-			FFF TTF FT
+		Total negativo mayor o igual a numeros positivos y/o nulos.
+		TTF FFF FF
+		TTF FFF FT
 
-			TFF FTF FF
-			TFF FTF FT
+		FFF TTF FF
+		FFF TTF FT
 
-			FTF TFF FF
-			FTF TFF FT
-			
+		TFF FTF FF
+		TFF FTF FT
 
-			Pequeñas + grandes > 0, total 0 y total >= grandes x 5 + pequeñas.
-			FTT TFF F*
-			TFT FTF F*
-			FFT TTF F*
+		FTF TFF FF
+		FTF TFF FT
 
-			Pequeñas + grandes < 0, total 0 y total <= grandes x 5 + pequeñas.
-			FFT FFF TF
-			TFT FFF TF
-			FTT FFF TF
+		Pequeñas + grandes > 0, total 0 y total >= grandes x 5 + pequeñas.
+		FTT TFF F*
+		TFT FTF F*
+		FFT TTF F*
 
-			FFT FFF FT
-			TFT FFF FT
-			FTT FFF FT
+		Pequeñas + grandes < 0, total 0 y total <= grandes x 5 + pequeñas.
+		FFT FFF TF
+		TFT FFF TF
+		FTT FFF TF
 
-		Bases:
-			Happy path: valores positivos y total < grandes x 5 + pequeñas.
-				FFF TTT TF
+		FFT FFF FT
+		TFT FFF FT
+		FTT FFF FT
 
-				Casos:	
-				FFF TTF TF
-				FFF TFT TF
-				FFF FTT TF
+	Bases:
+		Happy path: valores positivos y total < grandes x 5 + pequeñas.
+			FFF TTT TF
 
-			Happy path: valores positivos y total = grandes x 5 + pequeñas.
-				FFF TTT FT
+			Casos:	
+			FFF TTF TF
+			FFF TFT TF
+			FFF FTT TF
 
-				Casos:
-				FFF TFT FT
-				FFF FTT FT
+		Happy path: valores positivos y total = grandes x 5 + pequeñas.
+			FFF TTT FT
 
-			Happy path: valores positivos y total > grandes x 5 + pequeñas.
-				FFF TTT FF
+			Casos:
+			FFF TFT FT
+			FFF FTT FT
 
-				Casos:
-				FFF TFT FF
-				FFF FTT FF
+		Happy path: valores positivos y total > grandes x 5 + pequeñas.
+			FFF TTT FF
 
-			Happy path: Pequeñas = 0, total y grandes > 0 y total > grandes x 5 + pequeñas.
-				TFF FTT FF
+			Casos:
+			FFF TFT FF
+			FFF FTT FF
 
-				Casos:
-				TFF FFT FF
-				TFF FTT TF
-				TFF FTT FT
+		Happy path: Pequeñas = 0, total y grandes > 0 y total > grandes x 5 + pequeñas.
+			TFF FTT FF
 
-			Happy path: Grandes = 0, total y pequeñas > 0 y total > grandes x 5 + pequeñas.
-				FTF TFT FF
+			Casos:
+			TFF FFT FF
+			TFF FTT TF
+			TFF FTT FT
 
-				Casos:
-				FTF FFT FF
-				FTF TFT TF
-				FTF TFT FT
+		Happy path: Grandes = 0, total y pequeñas > 0 y total > grandes x 5 + pequeñas.
+			FTF TFT FF
 
-			Happy path: Total = 0, grandes y pequeñas > 0 y total < grandes x 5 + pequeñas.
-				FFT TTF TF
+			Casos:
+			FTF FFT FF
+			FTF TFT TF
+			FTF TFT FT
 
-				Casos:
-				FFT FTF TF
-				FFT TFF TF
-				
+		Happy path: Total = 0, grandes y pequeñas > 0 y total < grandes x 5 + pequeñas.
+			FFT TTF TF
 
-			Entrada mas simple: todo ceros.
-				TTT FFF FT
+			Casos:
+			FFT FTF TF
+			FFT TFF TF
+
+		Entrada mas simple: todo ceros.
+			TTT FFF FT
 
 *******************************
 *** 4. DescuentoBlackFriday ***
