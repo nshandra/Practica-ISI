@@ -94,7 +94,7 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	[int pequenas, int grandes, int total]
 
 3. Caracterización:
-	C1: pequeñas, grandes o total < 0
+	C1: pequeñas = 0
 	C2: grandes = 0
 	C3: total = 0
 
@@ -125,14 +125,31 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 			TTT FFF TF
 			TTT FFF FF
 
-			Total negativo mayor o igual a numeros positivos o nulos.
+			Total negativo mayor o igual a numeros positivos y/o nulos.
 			TTF FFF FF
-			FFF TTF FF
-
 			TTF FFF FT
+
+			FFF TTF FF
 			FFF TTF FT
 
-			Pequeñas o grandes negativas, total 0 y total = grandes x 5 + pequeñas.
+			TFF FTF FF
+			TFF FTF FT
+
+			FTF TFF FF
+			FTF TFF FT
+			
+
+			Pequeñas + grandes > 0, total 0 y total >= grandes x 5 + pequeñas.
+			FTT TFF F*
+			TFT FTF F*
+			FFT TTF F*
+
+			Pequeñas + grandes < 0, total 0 y total <= grandes x 5 + pequeñas.
+			FFT FFF TF
+			TFT FFF TF
+			FTT FFF TF
+
+			FFT FFF FT
 			TFT FFF FT
 			FTT FFF FT
 
@@ -140,7 +157,7 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 			Happy path: valores positivos y total < grandes x 5 + pequeñas.
 				FFF TTT TF
 
-				Elecciones:	
+				Casos:	
 				FFF TTF TF
 				FFF TFT TF
 				FFF FTT TF
@@ -148,49 +165,43 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 			Happy path: valores positivos y total = grandes x 5 + pequeñas.
 				FFF TTT FT
 
-				Elecciones:
+				Casos:
 				FFF TFT FT
 				FFF FTT FT
 
 			Happy path: valores positivos y total > grandes x 5 + pequeñas.
 				FFF TTT FF
 
-				Elecciones:
+				Casos:
 				FFF TFT FF
 				FFF FTT FF
 
+			Happy path: Pequeñas = 0, total y grandes > 0 y total > grandes x 5 + pequeñas.
+				TFF FTT FF
+
+				Casos:
+				TFF FFT FF
+				TFF FTT TF
+				TFF FTT FT
+
+			Happy path: Grandes = 0, total y pequeñas > 0 y total > grandes x 5 + pequeñas.
+				FTF TFT FF
+
+				Casos:
+				FTF FFT FF
+				FTF TFT TF
+				FTF TFT FT
+
+			Happy path: Total = 0, grandes y pequeñas > 0 y total < grandes x 5 + pequeñas.
+				FFT TTF TF
+
+				Casos:
+				FFT FTF TF
+				FFT TFF TF
+				
+
 			Entrada mas simple: todo ceros.
 				TTT FFF FT
-
-
-		Casos de test:
-			FFF TTT TF
-			FFF TTT FF
-			FFF TFT TF
-			FFF FTT TF
-
-			FFF TTT FT
-			FFF TFT FT
-			FFF FTT FT
-
-			FFF TTT FF
-			FFF TTF FF
-			FFF TFT FF
-			FFF FTT FF
-
-			TTT FFF FT
-			TFT FFF FT
-			FTT FFF FT
-
-			FFF FFF FF
-			FFF FFF FT
-			FFF FFF TF
-			FFF FTF FF
-			FFF TFF FF
-			FTF FFF FF
-			TFF FFF FF
-
-
 
 *******************************
 *** 4. DescuentoBlackFriday ***

@@ -21,6 +21,7 @@ public class EmbotelladoraTest {
 	@Parameters
 	public static Collection<Object[]> calcValues() {
 		return Arrays.asList (new Object [][] {
+
 			// Happy path: valores positivos y total < grandes x 5 + pequeñas.
 			// [0] FFF TTT TF
 			{8,6,22,0},
@@ -44,20 +45,35 @@ public class EmbotelladoraTest {
 			{-6,2,-5,-1},
 			// [9] FFF FTT FF
 			{-6,2,16,-1},
+			// Happy path: Pequeñas = 0, total y grandes > 0 y total > grandes x 5 + pequeñas.
+			// [10] TFF FTT FF
+			{0,1,11,-1},
+			// [11] TFF FFT FF
+			{0,-6,3,-1},
+			// [12] TFF FTT TF
+			{0,8,1,0},
+			// [13] TFF FTT FT
+			{0,3,15,0},
+			// Happy path: Grandes = 0, total y pequeñas > 0 y total > grandes x 5 + pequeñas.
+			// [14] FTF TFT FF
+			{1,0,2,-1},
+			// [15] FTF FFT FF
+			{-1,0,2,-1},
+			// [16] FTF TFT TF
+			{4,0,2,2},
+			// [17] FTF TFT FT
+			{3,0,3,3},
+			// Happy path: Total = 0, grandes y pequeñas > 0 y total < grandes x 5 + pequeñas.
+			// [18] FFT TTF TF
+			{1,1,0,0},
+			// [19] FFT FTF TF
+			{-1,1,0,-1},
+			// [20] FFT TFF TF
+			{1,-1,0,-1},
 			// Entrada mas simple: todo ceros.
-			// [10] TTT FFF FT
+			// [21] TTT FFF FT
 			{0,0,0,0}
-
-			// //Entrada nula
-			// {0,0,0,0},{0,1,1,0},{1,0,1,1},{1,1,0,0},
-			// //Entrada negativa
-			// {-1,-1,-1,-1},{-1,1,1,-1},{1,-1,1,-1},{1,1,-1,-1},
-			
-			// {0,1,6,-1},{0,2,6,0},{0,2,10,0},			
-			// {1,2,6,0},{6,2,6,0},{8,2,6,0},		
-			// {0,2,10,0},{10,2,10,0},{20,2,10,0},
-			// {5,1,10,5},{11,1,10,5},{5,1,10,5}
-			}); 
+			});
 	}
 	
 

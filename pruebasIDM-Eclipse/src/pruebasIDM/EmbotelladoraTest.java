@@ -29,7 +29,7 @@ public class EmbotelladoraTest {
 			// [1] FFF TTF TF
 			{20,2,-16,-1},
 			// [2] FFF TFT TF
-			{2,-8,16,-1},
+			{20,-1,16,-1},
 			// [3] FFF FTT TF
 			{-18,1,16,-1},
 			// Happy path: valores positivos y total = grandes x 5 + pequeñas.
@@ -43,13 +43,38 @@ public class EmbotelladoraTest {
 			// [7] FFF TTT FF
 			{3,1,18,-1},
 			// [8] FFF TFT FF
-			{6,-4,5,-1},
+			{-6,2,-5,-1},
 			// [9] FFF FTT FF
 			{-6,2,16,-1},
+			// Happy path: Pequeñas = 0, total y grandes > 0 y total > grandes x 5 + pequeñas.
+			// [10] TFF FTT FF
+			{0,1,11,-1},
+			// [11] TFF FFT FF
+			{0,-6,3,-1},
+			// [12] TFF FTT TF
+			{0,8,1,0},
+			// [13] TFF FTT FT
+			{0,3,15,0},
+			// Happy path: Grandes = 0, total y pequeñas > 0 y total > grandes x 5 + pequeñas.
+			// [14] FTF TFT FF
+			{1,0,2,-1},
+			// [15] FTF FFT FF
+			{-1,0,2,-1},
+			// [16] FTF TFT TF
+			{4,0,2,2},
+			// [17] FTF TFT FT
+			{3,0,3,3},
+			// Happy path: Total = 0, grandes y pequeñas > 0 y total < grandes x 5 + pequeñas.
+			// [18] FFT TTF TF
+			{1,1,0,0},
+			// [19] FFT FTF TF
+			{-1,1,0,-1},
+			// [20] FFT TFF TF
+			{1,-1,0,-1},
 			// Entrada mas simple: todo ceros.
-			// [10] TTT FFF FT
+			// [21] TTT FFF FT
 			{0,0,0,0}
-			}); 
+			});
 	}
 	
 
