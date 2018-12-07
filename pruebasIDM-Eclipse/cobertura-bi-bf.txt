@@ -1,0 +1,60 @@
+En el caso de Bisiesto, la cobertura es del 100% después de cambiar añadir un test:
+
+@Test
+public void testPrueba(){
+	year = 2005;
+	assertTrue("No es bisiesto, fallo", false == bis.esBisiesto(year));
+	System.out.println(year + "no es bisiesto");
+}
+
+que me permitia probar el caso en el que un año no fuese divisible entre 4.
+
+En el caso de DescuentoBlackFriday, la cobertura no era del 100%, porque según como está implementado (extrayendo la fecha) no se pueden evaluar algunos caminos: la condición para que sea BlackFriday es mes 11 dia 23, es decir, if((day == 11) && (month == 23)); entonces, si hoy no es mes 11 ni dia 23, solo evalua la "rama" false && false. 
+
+He realizado los cambios que comentamos en clase, para extraer la fecha de mi código de Descuento e introducirla como un parámetro, y después he añadido una serie de test:
+
+	//Test 1
+	@Test
+	public void testCheckPriceBlackFriday(){
+		price = 30.0;
+		
+		double discount = price * (30.0/100.0);
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,11,23);
+		assertTrue("Es Black Friday, fallo", discount == dbf.PrecioFinal(price,inputDate));
+
+	}
+	
+	//Test 2
+	@Test
+	public void testCheckPriceNoBlackFriday() {
+		price = 59.99;
+		
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,6,7);
+		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
+	}
+
+	//Test 3
+	@Test
+	public void testCheckSameMonthNoBF() {
+		price = 40.55;
+		
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,11,7);
+		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
+	}
+	
+	//Test 4
+	@Test
+	public void testCheckSameDayNoBF() {
+		price = 25.99;
+		
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,3,11);
+		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
+	}
+
+Así compruebo todos los posible caminos que se producen cuando en mi código combruebo si el día es 23 y el mes es 11 (el año no lo tengo en cuenta). 
+
+Ahora sí, la cobertura es del 100%.
