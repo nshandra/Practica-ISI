@@ -53,4 +53,12 @@ public class BisiestosTest {
 		assertTrue("No es bisiesto, fallo", false == bis.esBisiesto(year));
 		System.out.println(year + " no es bisiesto");
 	}
+	//Test extra para la mejora de la cobertura
+	@Test
+	public void testPrueba(){
+		year = 2005;
+		assertTrue("No es bisiesto, fallo", false == bis.esBisiesto(year));
+		System.out.println(year + "no es bisiesto");
+	}
+}
 }
