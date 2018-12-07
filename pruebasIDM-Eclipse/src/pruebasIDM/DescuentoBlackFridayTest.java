@@ -9,31 +9,56 @@ import java.time.ZoneId;
 public class DescuentoBlackFridayTest {
 
 	private double price;
-	private Date date = new Date();
-	private LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	DescuentoBlackFriday dbf = new DescuentoBlackFriday();
 
 	//Test 1
 	@Test
-	public void testCheckPrice(){
+	public void testCheckPriceBlackFriday(){
 		price = 30.0;
-
-		int month = localDate.getMonthValue();
-		int day   = localDate.getDayOfMonth();
+		
 		double discount = price * (30.0/100.0);
-		if((month == 11) && (day == 23)){
-				assertTrue("Es Black Friday, fallo", discount == dbf.PrecioFinal(price));
-		}else{
-				assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price));
-		}
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,11,23);
+		assertTrue("Es Black Friday, fallo", discount == dbf.PrecioFinal(price,inputDate));
 
 	}
-
+	
 	//Test 2
+	@Test
+	public void testCheckPriceNoBlackFriday() {
+		price = 59.99;
+		
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,6,7);
+		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
+	}
+
+	//Test 3
+	@Test
+	public void testCheckSameMonthNoBF() {
+		price = 40.55;
+		
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,11,7);
+		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
+	}
+	
+	//Test 4
+	@Test
+	public void testCheckSameDayNoBF() {
+		price = 25.99;
+		
+										//year, month, day
+		LocalDate inputDate = LocalDate.of(2018,3,11);
+		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
+	}
+	
+	//Test 5
 	@Test (expected = IllegalArgumentException.class)
 	public void testNonPositivePrice(){
 		price = -59.99;
-		dbf.PrecioFinal(price);
+		LocalDate inputDate = LocalDate.of(2018,5,5); //Cualquiera me sirve aquí
+		dbf.PrecioFinal(price,inputDate);
 
 	}
 }
