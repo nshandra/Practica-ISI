@@ -94,65 +94,113 @@ Si el resto es mayor al nº botellas pequeñas (es decir, no hay botellas sufici
 	[int pequenas, int grandes, int total]
 
 3. Caracterización:
-	C1: pequeñas nulo
-	C2: grandes nulo
-	C3: total nulo
+	C1: pequeñas = 0
+	C2: grandes = 0
+	C3: total = 0
+
 	C4: pequeñas positivo
 	C5: grandes positivo
 	C6: total positivo
-	C7: total > grandes x 5
-	C8: total = grandes x 5
-	C11: pequeñas > total
-	C12: pequeñas = total
 
-	Dividimos en nulo (0) y positivos porque nulo es caso frontera.
+	C7: total < grandes x 5 + pequeñas
+	C8: total = grandes x 5 + pequeñas
 
+	Dividimos en cero y positivos porque es caso frontera.
 
 4. Requisitos:
-	Vamos a utilizar el criterio ACoC (All Combinations Coverage) y lo vamos a comparar con el BCC (Base Choice Coverage).
-	- ACoC:
-		Tenemos un total de 16 posibles combinaciones de pruebas (ya que tenemos cuatro diferentes tests que pueden tener dos valores posibles cada uno).
+	Vamos a utilizar el criterio MBCC (Multiple Base Choice Coverage).
 
-	- BCC:
-		Base: Happy path con valores legales y numero de botellas suficiente.
-			FFF TTT TF TF
+	Requisitos no posibles:
 
-		Requisitos no posibles:
-			T** T** ** **
-			*T* *T* ** **
-			**T **T ** **
+		O = T OR F
+		
+		Entrada 0 y positiva a la vez.
+		T** T** **
+		*T* *T* **
+		**T **T **
 
-			*** *** TT **
-			*** *** ** TT
+		Total mayor e igual a la vez.
+		*** *** TT
 
-			Entrada nula
-			TTT FFF FF FF
-			TFF FTT TF FF
-			FTF TFT FF TF
-			FFT TTF FF TF
+		Entrada 0 y total != grandes x 5 + pequeñas.
+		TTT FFF TF
+		TTT FFF FF
 
-			Entrada negativa
-			FFF FTT TF TF
-			FFF TFT TF TF
-			FFF TTF TF TF
-			FFF FFF TF TF
+		Total negativo mayor o igual a numeros positivos y/o nulos.
+		TTF FFF FF
+		TTF FFF FT
 
-			TFF FTT TF FF
-			TFF FTT FT FF
+		FFF TTF FF
+		FFF TTF FT
 
-			FFF TTT TF FF
-			FFF TTT TF FT
-			FFF TTT TF TF
+		TFF FTF FF
+		TFF FTF FT
 
-			TFF FTT FT FF
-			FFF TTT FT FT
-			FFF TTT FT TF
+		FTF TFF FF
+		FTF TFF FT
 
-			FFF TTT FF FF
-			FFF TTT FF FT
-			FFF TTT FF TF
+		Pequeñas + grandes > 0, total 0 y total >= grandes x 5 + pequeñas.
+		FTT TFF F*
+		TFT FTF F*
+		FFT TTF F*
 
+		Pequeñas + grandes < 0, total 0 y total <= grandes x 5 + pequeñas.
+		FFT FFF TF
+		TFT FFF TF
+		FTT FFF TF
 
+		FFT FFF FT
+		TFT FFF FT
+		FTT FFF FT
+
+	Bases:
+		Happy path: valores positivos y total < grandes x 5 + pequeñas.
+			FFF TTT TF
+
+			Casos:	
+			FFF TTF TF
+			FFF TFT TF
+			FFF FTT TF
+
+		Happy path: valores positivos y total = grandes x 5 + pequeñas.
+			FFF TTT FT
+
+			Casos:
+			FFF TFT FT
+			FFF FTT FT
+
+		Happy path: valores positivos y total > grandes x 5 + pequeñas.
+			FFF TTT FF
+
+			Casos:
+			FFF TFT FF
+			FFF FTT FF
+
+		Happy path: Pequeñas = 0, total y grandes > 0 y total > grandes x 5 + pequeñas.
+			TFF FTT FF
+
+			Casos:
+			TFF FFT FF
+			TFF FTT TF
+			TFF FTT FT
+
+		Happy path: Grandes = 0, total y pequeñas > 0 y total > grandes x 5 + pequeñas.
+			FTF TFT FF
+
+			Casos:
+			FTF FFT FF
+			FTF TFT TF
+			FTF TFT FT
+
+		Happy path: Total = 0, grandes y pequeñas > 0 y total < grandes x 5 + pequeñas.
+			FFT TTF TF
+
+			Casos:
+			FFT FTF TF
+			FFT TFF TF
+
+		Entrada mas simple: todo ceros.
+			TTT FFF FT
 
 *******************************
 *** 4. DescuentoBlackFriday ***

@@ -13,7 +13,7 @@ import junit.framework.JUnit4TestAdapter;
 @RunWith (Suite.class)
 @Suite.SuiteClasses ({ EmbotelladoraTest.class })  // Add test classes here.
 
-public class AllTestsEmb {
+public class AllTests {
     // Execution begins in main(). This test class executes a
     // test runner that tells the tester if any fail.
     public static void main (String[] args) {
