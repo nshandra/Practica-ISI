@@ -49,7 +49,7 @@ public class DescuentoBlackFridayTest {
 		price = 25.99;
 		
 										//year, month, day
-		LocalDate inputDate = LocalDate.of(2018,3,11);
+		LocalDate inputDate = LocalDate.of(2018,3,23);
 		assertTrue("No es Black Friday, fallo", price == dbf.PrecioFinal(price,inputDate));
 	}
 	
